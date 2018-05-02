@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ASMEX</title>
+
+    <script>
+        FontAwesomeConfig = { searchPseudoElements: true };
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <script defer src="./index.js" ></script>
+
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Aside -->
+        <aside class="aside">
+
+            <!-- Actions -->
+            <div class="actions">
+
+                <!-- All Inboxes -->
+                <div class="all-inboxes">
+
+                    <!-- Inboxes -->
+                    <div class="inboxes">
+                        <ul>
+                            <li class="has-child">
+                                <a href="javascript: void(0);">All Inboxes</a>
+                                <ul class="action-nav-content">
+                                    <li><a href="#">Christophe Adolphe</a></li>
+                                    <li><a href="#">Christophe Adolphe</a></li>
+                                    <li><a href="#">Christophe Adolphe</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Inboxes Actions -->
+                    <div class="inboxes-actions">
+                        <a href="javascript: void(0);">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Filter Messages -->
+                <div class="filter-messages">
+                    <div class="everything">
+                        <a href="javascript: void(0);">43 everything</a>
+                    </div>
+                    <div class="unassigned active">
+                        <a href="javascript: void(0);">19 unassigned</a>
+                    </div>
+                    <div class="mine">
+                        <a href="javascript: void(0);">4 me</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="messages">
+
+                <!-- Message -->
+                <div class="message open">
+                    <div class="avatar">
+                        <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="" class="profile-pic open">
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="subject">#3826 - New Contract Agreeme...</div>
+                            <div class="time">9:13 AM</div>
+                        </div>
+                        <div class="subtitle">Mary Johnson - The Fairy Company</div>
+                        <div class="content"><span>UXPin the UX & Product Design Platform is the best thing since Dieter Rams in Braun. Try it for free: www.uxpin.com. All the best.</span></div>
+                    </div>
+                </div>
+
+                <div class="message answered">
+                        <div class="avatar">
+                            <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="" class="profile-pic answered">
+                        </div>
+                        <div class="content">
+                            <div class="title">
+                                <div class="subject">#3826 - New Contract Agreeme...</div>
+                                <div class="time">9:13 AM</div>
+                            </div>
+                            <div class="subtitle">Mary Johnson - The Fairy Company</div>
+                            <div class="content"><span>UXPin the UX & Product Design Platform is the best thing since Dieter Rams in Braun. Try it for free: www.uxpin.com. All the best.</span></div>
+                        </div>
+                    </div>
+
+                <div class="message">
+                    <div class="avatar">
+                        <img src="https://avatarfiles.alphacoders.com/115/115265.png" alt="" class="profile-pic">
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            <div class="subject">#3826 - New Contract Agreeme...</div>
+                            <div class="time">9:13 AM</div>
+                        </div>
+                        <div class="subtitle">Mary Johnson - The Fairy Company</div>
+                        <div class="content"><span>UXPin the UX & Product Design Platform is the best thing since Dieter Rams in Braun. Try it for free: www.uxpin.com. All the best.</span></div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="create">
+
+            </div> -->
+        </aside>
+
+        <!-- Quick Bar -->
+        <aside class="quick-bar">
+            <header class="header">
+                <div class="title">Settings</div>
+                <div class="close" onclick="toggle('quick-bar')">
+                    <i class="far fa-times-circle fa-2x"></i>
+                </div>
+            </header>
+            <div class="content">
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <label>Subject</label>
+                        <input type="text" name="" id="" placeholder="New Contract Agreement">
+                    </div>
+                    <div class="input-group">
+                        <label>To</label>
+                        <input type="text" name="" id="" placeholder="email@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label>CC</label>
+                        <input type="text" name="" id="" placeholder="email@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea name="" id="" cols="30" rows="5"></textarea>
+                    </div>
+                </form>
+            </div>
+            <footer class="footer">
+                <span></span>
+                <div class="send">
+                    <i class="fab fa-telegram-plane fa-2x"></i>
+                </div>
+            </footer>
+        </aside>
+
+        <!-- Header -->
+        <header class="header">
+
+            <!-- Subject Title -->
+            <div class="subject">#3826 - New Contract Agreeme...</div>
+            <span></span>
+
+            <!-- Action Menu -->
+            <nav class="action-nav">
+                <ul>
+                    <li><a href="javascript: void(0);">Sales Team</a></li>
+                    <li class="has-child">
+                        <a href="javascript: void(0);">Christophe Adolphe</a>
+                        <ul class="action-nav-content">
+                            <li><a href="#">Christophe Adolphe</a></li>
+                            <li><a href="#">Christophe Adolphe</a></li>
+                            <li><a href="#">Christophe Adolphe</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript: void(0);">MED</a></li>
+                    <li onclick="toggle('quick-bar')"><a href="javascript: void(0);"><i class="fas fa-pencil-alt"></i></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <div class="main">
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+        </footer>
+
+    </div>
+
+</body>
+</html>
