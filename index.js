@@ -1,5 +1,6 @@
 
 
 function toggle(x) {
-    document.getElementsByClassName(x)[0].classList.toggle('active')
+    for (var i = 0; i < arguments.length; i++)
+        document.getElementsByClassName(arguments[i])[0].classList.toggle('active')
 }

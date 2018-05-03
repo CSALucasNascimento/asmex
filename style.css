@@ -412,13 +412,10 @@ li:hover {
     overflow-y: scroll;
     padding: calc(var(--gap) * 1.5);
 }
-.main ul {
-    overflow-x: scroll;
-}
 .main ul li {
     box-shadow: 0 1px 0 0 var(--border-grey);
     cursor: auto;
-    padding: var(--gap) calc(var(--gap) / 2);
+    padding: var(--gap) calc(var(--gap) / 2) calc(var(--gap) / 2);
     display: grid;
     grid-template-columns: min-content 1fr;
 }
@@ -439,17 +436,45 @@ li:hover {
 }
 .main ul li > .content .sender {
     cursor: pointer;
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr max-content min-content;
+    grid-column-gap: calc(var(--gap) / 2);
 }
 .main ul li > .content .sender .recipient {
     font-size: 1.2rem;
     font-weight: 500;
 }
-.main ul li > .content .message {
+.main ul li > .content .sender::after{
+    font-family: "Font Awesome 5 Solid";
+    content: "\f0d7";
+    display: none;
+}
+.main ul li > .content .sender.active::after {
+    font-family: "Font Awesome 5 Solid";
+    content: "\f0d8";
+    display: none;
+}
+.main ul li > .content .email {
     display: grid;
-    grid-row-gap: calc(var(--gap) / 2);
+    grid-row-gap: calc(var(--gap) / 4);
+    height: calc(var(--gap) / 2);
+    max-height: var(--gap);
+    overflow-y: hidden;
+    padding-bottom: calc(var(--gap) * 1.5);
+    position: relative;
+    transition: ease-in-out max-height .5s;
+}
+.main ul li > .content .email.active {
+    height: fit-content;
+    max-height: 100vh;
+}
+.main ul li > .content .email::after {
+    content: '';
+    bottom: 0;
+    background: linear-gradient(transparent, var(--primary-color));
+    height: calc(var(--main-height) / 2);
+    position: absolute;
+    width: 100%;
 }
 
 
