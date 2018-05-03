@@ -120,7 +120,7 @@
             </div>
 
             <!-- Btn Create -->
-            <div class="create">
+            <div class="create" onclick="toggle('quick-create')">
                 <a href="javascript: void(0);">Create</a>
             </div>
         </aside>
@@ -271,10 +271,69 @@
         <!-- Footer -->
         <footer class="footer">
             <ul>
-                <li><a href="javascript: void(0);">Reply</a></li>
-                <li><a href="javascript: void(0);">Team Notes</a></li>
+                <li onclick="toggle('quick-reply')"><a href="javascript: void(0);">Reply</a></li>
+                <li onclick="toggle('quick-note')"><a href="javascript: void(0);">Team Notes</a></li>
             </ul>
         </footer>
+
+        <!-- Quick Create -->
+        <aside class="quick-create">
+            <header class="header">
+                <div class="title">Create</div>
+                <div class="close" onclick="toggle('quick-create')">
+                    <i class="far fa-times-circle fa-2x"></i>
+                </div>
+            </header>
+            <div class="content">
+                <form action="#" method="post">
+                    <div class="fields">
+                        <div class="input-group">
+                            <label>Subject</label>
+                            <input type="text" name="" id="" placeholder="New Contract Agreement">
+                        </div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <input type="text" name="" id="" placeholder="email@email.com">
+                        </div>
+                        <div class="input-group">
+                            <label>CC</label>
+                            <input type="text" name="" id="" placeholder="email@email.com">
+                        </div>
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea name="" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="input-group send">
+                        <i class="fab fa-telegram-plane fa-2x"></i>
+                    </div>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Quick Reply -->
+        <aside class="quick-reply">
+            <header class="header">
+                <div class="title">Reply</div>
+                <div class="close" onclick="toggle('quick-reply')">
+                    <i class="far fa-times-circle fa-2x"></i>
+                </div>
+            </header>
+            <div class="content">
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea name="" id="" cols="30" rows="5"></textarea>
+                    </div>
+                </form>
+            </div>
+            <footer class="footer">
+                <span></span>
+                <div class="send">
+                    <i class="fab fa-telegram-plane fa-2x"></i>
+                </div>
+            </footer>
+        </aside>
 
     </div>
 

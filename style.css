@@ -502,5 +502,123 @@ li:hover {
     justify-items: center;
 }
 .footer ul li:hover {
-    background: var(--primary-color);
+    background: var(--dark-grey);
 }
+
+
+/****
+    *
+    *   QUICK CREATE
+    *
+    */
+.quick-create {
+    background-color: var(--secondary-color);
+    height: calc(var(--main-height) * 3);
+    position: absolute;
+    left: var(--width-aside);
+    width: calc(100% - var(--width-aside));
+    bottom: 0;
+    transform: translateY(100%);
+    z-index: 2;
+    transition: ease-in-out all .3s;
+}
+.quick-create.active {
+    transform: translateY(0);
+}
+.quick-create .header {
+    align-items: center;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    height: var(--main-height);
+}
+.quick-create .header > div {
+    padding: 0 var(--gap);
+}
+.quick-create .header .close {
+    cursor: pointer;
+}
+.quick-create .content {
+    padding: var(--gap) 0 0 var(--gap);
+    overflow-y: scroll;
+}
+.quick-create .content form {
+    display: grid;
+    grid-template-columns: 1fr var(--main-height);
+}
+
+.quick-create .content form .fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--gap);
+}
+
+.quick-create .content form .input-group {
+    display: flex;
+    flex-flow: column;
+}
+.quick-create .content form .input-group label {
+    font-size: .7rem;
+}
+.quick-create .content form .input-group input[type="text"], .quick-create .content form textarea {
+    background: transparent;
+    border: none;
+    box-shadow: 0 1px 0 0 var(--primary-color);
+    color: var(--font-color);
+    padding: calc(var(--gap) / 6);
+}
+
+/****
+    *
+    *   QUICK REPLY
+    *
+    */
+    .quick-reply {
+        background-color: var(--secondary-color);
+        height: calc(fit-content - var(--main-height));
+        position: absolute;
+        left: var(--width-aside);
+        width: calc(100% - var(--width-aside));
+        bottom: 0;
+        transform: translateY(100%);
+        z-index: 2;
+        transition: ease-in-out all .3s;
+    }
+    .quick-reply.active {
+        transform: translateY(0);
+    }
+    .quick-reply .header, .quick-reply .footer {
+        align-items: center;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        height: var(--main-height);
+    }
+    .quick-reply .header > div, .quick-reply .footer > div {
+        padding: 0 var(--gap);
+    }
+    .quick-reply .header .close {
+        cursor: pointer;
+    }
+    .quick-reply .content {
+        padding: var(--gap);
+        overflow-y: scroll;
+    }
+    .quick-reply .content form {
+        display: grid;
+        grid-row-gap: calc(var(--gap) / 1.5);
+    }
+    .quick-reply .content form .input-group {
+        display: flex;
+        flex-flow: column;
+    }
+    .quick-reply .content form .input-group label {
+        font-size: .7rem;
+    }
+    .quick-reply .content form .input-group input[type="text"], .quick-reply .content form textarea {
+        background: transparent;
+        border: none;
+        box-shadow: 0 1px 0 0 var(--primary-color);
+        color: var(--font-color);
+        padding: calc(var(--gap) / 6);
+    }
