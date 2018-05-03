@@ -277,13 +277,7 @@
         </footer>
 
         <!-- Quick Create -->
-        <aside class="quick-create">
-            <header class="header">
-                <div class="title">Create</div>
-                <div class="close" onclick="toggle('quick-create')">
-                    <i class="far fa-times-circle fa-2x"></i>
-                </div>
-            </header>
+        <!-- <aside class="quick-create">
             <div class="content">
                 <form action="#" method="post">
                     <div class="fields">
@@ -304,37 +298,42 @@
                             <textarea name="" id="" cols="30" rows="5"></textarea>
                         </div>
                     </div>
-                    <div class="input-group send">
-                        <i class="fab fa-telegram-plane fa-2x"></i>
+                    <div class="buttons">
+                        <div class="input-group send send-main open">
+                            <i class="fab fa-telegram-plane fa-2x"></i>
+                        </div>
+                        <div class="input-group send send-2 ">
+                        </div>
+                        <div class="input-group send send-3 answered">
+                        </div>
                     </div>
                 </form>
             </div>
-        </aside>
+        </aside> -->
 
         <!-- Quick Reply -->
         <aside class="quick-reply">
-            <header class="header">
-                <div class="title">Reply</div>
-                <div class="close" onclick="toggle('quick-reply')">
-                    <i class="far fa-times-circle fa-2x"></i>
-                </div>
-            </header>
             <div class="content">
                 <form action="#" method="post">
-                    <div class="input-group">
-                        <label>Message</label>
-                        <textarea name="" id="" cols="30" rows="5"></textarea>
+                    <div class="fields">
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea name="" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="input-group send send-main open" onclick="toggle('quick-reply')">
+                            <i class="fab fa-telegram-plane fa-2x"></i>
+                        </div>
+                        <div class="input-group send send-2 " onclick="toggle('quick-reply')">
+                        </div>
+                        <div class="input-group send send-3 answered" onclick="toggle('quick-reply')">
+                        </div>
                     </div>
                 </form>
             </div>
-            <footer class="footer">
-                <span></span>
-                <div class="send">
-                    <i class="fab fa-telegram-plane fa-2x"></i>
-                </div>
-            </footer>
         </aside>
-
+        
     </div>
 
 </body>

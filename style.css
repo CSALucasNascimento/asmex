@@ -519,7 +519,7 @@ li:hover {
     width: calc(100% - var(--width-aside));
     bottom: 0;
     transform: translateY(100%);
-    z-index: 2;
+    z-index: 1;
     transition: ease-in-out all .3s;
 }
 .quick-create.active {
@@ -540,7 +540,6 @@ li:hover {
 }
 .quick-create .content {
     padding: var(--gap) 0 0 var(--gap);
-    overflow-y: scroll;
 }
 .quick-create .content form {
     display: grid;
@@ -553,14 +552,19 @@ li:hover {
     grid-gap: var(--gap);
 }
 
-.quick-create .content form .input-group {
+.quick-create .content form .fields .input-group {
     display: flex;
     flex-flow: column;
 }
-.quick-create .content form .input-group label {
+
+.quick-create .content form .fields .input-group:last-child {
+    grid-column: 1 / 4;
+}
+
+.quick-create .content form .fields .input-group label {
     font-size: .7rem;
 }
-.quick-create .content form .input-group input[type="text"], .quick-create .content form textarea {
+.quick-create .content form .fields .input-group input[type="text"], .quick-create .content form .fields textarea {
     background: transparent;
     border: none;
     box-shadow: 0 1px 0 0 var(--primary-color);
@@ -568,12 +572,231 @@ li:hover {
     padding: calc(var(--gap) / 6);
 }
 
+.quick-create .content form .buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.quick-create .content form .buttons:hover {
+    cursor: pointer;
+}
+
+.quick-create .content form .buttons:hover .send-2 {
+    transform: translateY(calc(var(--gap) * -3));
+}
+
+.quick-create .content form .buttons:hover .send-3 {
+    transform: translateY(calc(var(--gap) * -6));
+}
+
+.quick-create .content form .buttons .send {
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: grid;
+    justify-content: center;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    height: calc(var(--gap) * 1.5);
+    width: calc(var(--gap) * 1.5);
+    transition: all .3s ease;
+}
+
+.quick-create .content form .buttons:hover .send.send-main {
+    height: calc(var(--gap) * 1.5);
+    width: calc(var(--gap) * 1.5);
+}
+
+.quick-create .content form .buttons .send.send-main {
+    height: calc(var(--gap) * 2);
+    width: calc(var(--gap) * 2);
+    z-index: 3;
+}
+
+.quick-create .content form .buttons .send.send-main:hover {
+    height: calc(var(--gap) * 2);
+    width: calc(var(--gap) * 2);
+}
+
+.quick-create .content form .buttons .send.send-2 {
+    z-index: 2;
+}
+
+.quick-create .content form .buttons .send.send-2:hover {
+    height: calc(var(--gap) * 2);
+    width: calc(var(--gap) * 2);
+}
+
+.quick-create .content form .buttons .send.send-3 {
+    z-index: 1;
+}
+.quick-create .content form .buttons .send.send-3:hover {
+    height: calc(var(--gap) * 2);
+    width: calc(var(--gap) * 2);
+}
+
+.quick-create .content form .buttons .send.answered {
+    background-color: var(--answered-color);     
+}
+
+.quick-create .content form .buttons .send.open {
+    background-color: var(--open-color);     
+}
+
+
+
+
+
 /****
     *
     *   QUICK REPLY
     *
     */
     .quick-reply {
+        background-color: var(--secondary-color);
+        height: calc(var(--main-height) * 2);
+        position: absolute;
+        left: var(--width-aside);
+        width: calc(100% - var(--width-aside));
+        bottom: 0;
+        transform: translateY(100%);
+        z-index: 1;
+        transition: ease-in-out all .3s;
+    }
+    .quick-reply.active {
+        transform: translateY(0);
+    }
+    .quick-reply .header {
+        align-items: center;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        height: var(--main-height);
+    }
+    .quick-reply .header > div {
+        padding: 0 var(--gap);
+    }
+    .quick-reply .header .close {
+        cursor: pointer;
+    }
+    .quick-reply .content {
+        padding: var(--gap) 0 0 var(--gap);
+    }
+    .quick-reply .content form {
+        display: grid;
+        grid-template-columns: 1fr var(--main-height);
+    }
+    
+    .quick-reply .content form .fields {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: var(--gap);
+    }
+    
+    .quick-reply .content form .fields .input-group {
+        display: flex;
+        flex-flow: column;
+    }
+    
+    .quick-reply .content form .fields .input-group:last-child {
+        grid-column: 1 / 4;
+    }
+    
+    .quick-reply .content form .fields .input-group label {
+        font-size: .7rem;
+    }
+    .quick-reply .content form .fields .input-group input[type="text"], .quick-reply .content form .fields textarea {
+        background: transparent;
+        border: none;
+        box-shadow: 0 1px 0 0 var(--primary-color);
+        color: var(--font-color);
+        padding: calc(var(--gap) / 6);
+    }
+    
+    .quick-reply .content form .buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        justify-items: center;
+        align-content: end;
+    }
+    
+    .quick-reply .content form .buttons:hover {
+        cursor: pointer;
+    }
+    
+    .quick-reply .content form .buttons:hover .send-2 {
+        transform: translateY(calc(var(--gap) * -2));
+    }
+    
+    .quick-reply .content form .buttons:hover .send-3 {
+        transform: translateY(calc(var(--gap) * -4));
+    }
+    
+    .quick-reply .content form .buttons .send {
+        align-items: center;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        display: grid;
+        justify-content: center;
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        height: calc(var(--gap) * 1.5);
+        width: calc(var(--gap) * 1.5);
+        transition: all .3s ease;
+    }
+    
+    .quick-reply .content form .buttons:hover .send.send-main {
+        height: calc(var(--gap) * 1.5);
+        width: calc(var(--gap) * 1.5);
+    }
+    
+    .quick-reply .content form .buttons .send.send-main {
+        height: calc(var(--gap) * 2);
+        width: calc(var(--gap) * 2);
+        z-index: 3;
+    }
+    
+    .quick-reply .content form .buttons .send.send-main:hover {
+        height: calc(var(--gap) * 2);
+        width: calc(var(--gap) * 2);
+    }
+    
+    .quick-reply .content form .buttons .send.send-2 {
+        z-index: 2;
+    }
+    
+    .quick-reply .content form .buttons .send.send-2:hover {
+        height: calc(var(--gap) * 2);
+        width: calc(var(--gap) * 2);
+    }
+    
+    .quick-reply .content form .buttons .send.send-3 {
+        z-index: 1;
+    }
+    .quick-reply .content form .buttons .send.send-3:hover {
+        height: calc(var(--gap) * 2);
+        width: calc(var(--gap) * 2);
+    }
+    
+    .quick-reply .content form .buttons .send.answered {
+        background-color: var(--answered-color);     
+    }
+    
+    .quick-reply .content form .buttons .send.open {
+        background-color: var(--open-color);     
+    }
+
+
+
+
+
+
+
+
+    /* .quick-reply {
         background-color: var(--secondary-color);
         height: calc(fit-content - var(--main-height));
         position: absolute;
@@ -621,4 +844,4 @@ li:hover {
         box-shadow: 0 1px 0 0 var(--primary-color);
         color: var(--font-color);
         padding: calc(var(--gap) / 6);
-    }
+    } */
