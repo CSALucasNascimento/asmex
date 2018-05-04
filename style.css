@@ -236,7 +236,9 @@ li:hover {
 .aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content li:not(:last-child) {
     box-shadow: 0 1px 0 0 var(--border-grey);
 }
-
+.aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content li a svg {
+    color: var(--secondary-color);
+}
 .aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content li a svg.answered {
     color: var(--answered-color);
 }
