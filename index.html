@@ -69,6 +69,18 @@
                 </div>
             </div>
 
+            <!-- Search -->
+            <!-- <div class="search">
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <input type="search" name="" id="">
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </form>
+            </div> -->
+
             <!-- Messages -->
             <div class="messages">
 
@@ -120,7 +132,7 @@
             </div>
 
             <!-- Btn Create -->
-            <div class="create" onclick="toggle('quick-create')">
+            <div class="create" onclick="toggle('quick-create'); toggleInactive('main')">
                 <a href="javascript: void(0);">Create</a>
             </div>
         </aside>
@@ -277,7 +289,13 @@
         </footer>
 
         <!-- Quick Create -->
-        <!-- <aside class="quick-create">
+        <aside class="quick-create">
+            <header class="header">
+                <div class="title">New Message</div>
+                <div class="close" onclick="toggle('quick-create'), toggleInactive('main')">
+                    <i class="far fa-times-circle fa-2x"></i>
+                </div>
+            </header>
             <div class="content">
                 <form action="#" method="post">
                     <div class="fields">
@@ -295,21 +313,17 @@
                         </div>
                         <div class="input-group">
                             <label>Message</label>
-                            <textarea name="" id="" cols="30" rows="5"></textarea>
+                            <textarea name="" id="" cols="30" rows="15"></textarea>
                         </div>
                     </div>
                     <div class="buttons">
-                        <div class="input-group send send-main open">
+                        <div class="input-group send">
                             <i class="fab fa-telegram-plane fa-2x"></i>
-                        </div>
-                        <div class="input-group send send-2 ">
-                        </div>
-                        <div class="input-group send send-3 answered">
                         </div>
                     </div>
                 </form>
             </div>
-        </aside> -->
+        </aside>
 
         <!-- Quick Reply -->
         <aside class="quick-reply">
@@ -328,6 +342,27 @@
                         <div class="input-group send send-2 " onclick="toggle('quick-reply')">
                         </div>
                         <div class="input-group send send-3 answered" onclick="toggle('quick-reply')">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Quick Note -->
+        <aside class="quick-note">
+            <div class="content">
+                <form action="#" method="post">
+                    <div class="fields">
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea name="" id="" cols="30" rows="5">
+                                Lorem ipsum dolor sit amet
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="input-group send" onclick="toggle('quick-note')">
+                            <i class="fab fa-telegram-plane fa-2x"></i>
                         </div>
                     </div>
                 </form>
