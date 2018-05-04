@@ -1,0 +1,22 @@
+/****
+    *
+    *   FOOTER
+    *
+    */
+.footer {
+  grid-area: footer;
+  background: var(--secondary-color);
+  box-shadow: 0 -1px 0 0 var(--border-grey);
+  display: grid;
+  align-items: stretch; }
+  .footer ul {
+    display: inherit;
+    grid-template-columns: repeat(2, 1fr); }
+    .footer ul li {
+      align-items: center;
+      box-shadow: inherit;
+      height: 100%;
+      display: inherit;
+      justify-items: center; }
+      .footer ul li:hover {
+        background: var(--dark-grey); }

@@ -14,7 +14,6 @@
     --primary-color-70: rgba(56,66,75, .7);
     --secondary-color:#404b55;
     --dark-grey: #333b44;
-    --grey: #ababac;
     --light-grey: rgba(235,235,235, 1);
     --border-grey: rgba(235,235,235, .1);
     --note-color: #fffad5;
@@ -26,10 +25,9 @@
 
 * {
     box-sizing: border-box;
-}
-
-*:focus {
-    outline: none;
+    &:focus {
+        outline: none;
+    }
 }
 
 html, body {
@@ -38,7 +36,7 @@ html, body {
     font-family: var(--font);
     font-size: 1rem;
     height: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
     position: relative;
     width: 100%;
     text-rendering: optimizeLegibility;
@@ -68,9 +66,9 @@ h4 {
 
 p {
     font-size: 1rem;
-}
-p.small {
-    font-size: 0.875rem;
+    &.small {
+        font-size: 0.875rem;
+    }
 }
 
 span {
@@ -110,86 +108,105 @@ li:hover {
     background: var(--dark-grey);
     box-shadow: 1px 0 0 0 var(--border-grey);
     display: grid;
-    grid-template-rows: var(--main-height) calc(var(--main-height) / 2) 1fr var(--main-height);
+    grid-template-rows: var(--main-height) 1fr var(--main-height);
     grid-template-areas:
         "actions"
-        "search"
         "messages"
         "create";
     min-height: 100%;
     z-index: 1;
-}
-.aside .actions {
-    grid-area: actions;
-    background: var(--secondary-color);
 
-    display: grid;
-    grid-template-rows: repeat(2, calc(var(--main-height) / 2));
-    grid-template-areas:
-        "all-inboxes"
-        "filter-messages";
-}
-.aside .actions .all-inboxes, .aside .actions .filter-messages{
-    box-shadow: inset 0 -1px 0 0 var(--border-grey);
-}
-.aside .actions .all-inboxes {
-    display: grid;
-    grid-template-columns: 1fr calc(var(--main-height) / 2);
-    justify-items: stretch;
-    align-items: stretch;
+    .actions {
+        grid-area: actions;
+        background: var(--secondary-color);
+        display: grid;
+        grid-template-rows: repeat(2, calc(var(--main-height) / 2));
+        grid-template-areas:
+            "all-inboxes"
+            "filter-messages";
 
+        .all-inboxes, .filter-messages {
+            box-shadow: inset 0 -1px 0 0 var(--border-grey);
+            justify-items: stretch;
+            align-items: stretch;
+            display: inherit;
+
+            .active {
+                box-shadow: inset 0 -1px 0 0 var(--light-grey);
+            }
+
+            > div {
+                display: inherit;
+                align-items: center;
+                justify-items: center;
+            }
+        }
+
+        .all-inboxes {
+            grid-area: all-inboxes;
+            grid-template-columns: 1fr calc(var(--main-height) / 2);
+
+            .inboxes {
+                display: flex;
+                justify-content: center;
+                align-items: inherit;
+
+                ul li {
+                    align-items: inherit;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    height: 100%;
+                    padding: 0 var(--gap);
+
+                    &.has-child {
+                        grid-column-gap: calc(var(--gap) / 2);
+                        grid-template-columns: 1fr min-content;
+
+                        &::after {
+                            font-family: "Font Awesome 5 Solid";
+                            content: "\f0d7";
+                            display: none;
+                        }
+                    }
+                    &:hover {
+                        ul.action-nav-content {
+                            display: flex;
+                            flex-flow: column;
+                            top: calc(var(--main-height) / 2);
+                        }
+
+                    }
+                    ul.action-nav-content {
+                        background-color: var(--dark-grey);
+                        display: none;
+                        position: absolute;
+                        width: fit-content;
+                        z-index: 1;
+
+                        li {
+                            box-shadow: none;
+                            padding: calc(var(--gap) / 2) var(--gap);
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .inboxes-actions {
+                background: var(--border-grey);
+            }
+        }
+
+        .filter-messages {
+            grid-area: filter-messages;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 }
-.aside .actions .all-inboxes .inboxes-actions {
-    background: var(--border-grey);
-}
-.aside .actions .filter-messages {
-    grid-area: filter-messages;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: stretch;
-    align-items: stretch;
-}
-.aside .actions .filter-messages > .active {
-    box-shadow: inset 0 -1px 0 0 var(--light-grey);
-}
-.aside .actions .all-inboxes > div, .aside .actions .filter-messages > div {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-}
-.aside .actions .all-inboxes .inboxes {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-}
-.aside .actions .all-inboxes .inboxes ul li {
-    align-items: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    height: 100%;
-    padding: 0 var(--gap);
-}
-.aside .actions .all-inboxes .inboxes ul li.has-child {
-    grid-column-gap: calc(var(--gap) / 2);
-    grid-template-columns: 1fr min-content;
-}
-.aside .actions .all-inboxes .inboxes ul li.has-child::after {
-    font-family: "Font Awesome 5 Solid";
-    content: "\f0d7";
-    display: none;
-}
-.aside .actions .all-inboxes .inboxes ul li:hover ul.action-nav-content {
-    display: flex;
-    flex-flow: column;
-    top: calc(var(--main-height) / 2);
-}
-.aside .actions .all-inboxes .inboxes ul li ul.action-nav-content {
-    background-color: var(--dark-grey);
-    display: none;
-    position: absolute;
-    width: fit-content;
-    z-index: 1;
-}
+
+
 .aside .actions .all-inboxes .inboxes ul li ul.action-nav-content li{
     box-shadow: none;
     padding: calc(var(--gap) / 2) var(--gap);
@@ -201,85 +218,8 @@ li:hover {
     box-shadow: 0 1px 0 0 var(--border-grey);
 }
 
-
-
-.aside .actions .all-inboxes .inboxes-actions > ul {
-    display: grid;
-    align-self: stretch;
-    justify-self: stretch;
-}
-
-.aside .actions .all-inboxes .inboxes-actions > ul > li > a {
-    position: absolute;
-    margin: 12px;
-}
-
-.aside .actions .all-inboxes .inboxes-actions ul li:hover ul.action-nav-content {
-    display: flex;
-    flex-flow: column;
-    top: calc(var(--main-height) / 2);
-}
-.aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content {
-    background-color: var(--dark-grey);
-    display: none;
-    position: absolute;
-    width: fit-content;
-    z-index: 1;
-}
-.aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content li{
-    box-shadow: none;
-    padding: calc(var(--gap) / 2) var(--gap);
-}
-.aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content li:hover {
-    background-color: var(--secondary-color);
-}
-.aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content li:not(:last-child) {
-    box-shadow: 0 1px 0 0 var(--border-grey);
-}
-
-.aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content li a svg.answered {
-    color: var(--answered-color);
-}
-.aside .actions .all-inboxes .inboxes-actions ul li ul.action-nav-content li a svg.open {
-    color: var(--open-color);
-}
-
-
-
-
-
-
 .aside .search {
-    box-shadow: inset 0 -1px 0 0 var(--border-grey);
-    grid-area: search;
-    display: grid;
-    align-content: center;
-    justify-items: stretch;
-}
-
-.aside .search form {
-    display: grid;
-    grid-template-columns: 1fr min-content;
-    align-items: center;
-    grid-row-gap: calc(var(--gap) / 2);
-    padding: 0 calc(var(--gap) / 2);
-}
-
-.aside .search form input{
-    background: transparent;
-    border: none;
-    box-shadow: 0 1px 0 0 var(--primary-color);
-    color: var(--font-color);
-    padding: calc(var(--gap) / 6);
-    width: 100%;
-}
-
-.aside .search form input::placeholder {
-    color: var(--grey);
-}
-
-.aside .search form > div:not(:first-child) {
-    margin-left: calc(var(--gap) /4);
+    
 }
 
 .aside .messages {
