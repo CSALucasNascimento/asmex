@@ -513,7 +513,19 @@ input[type="text"]::placeholder{
     color: var(--font-color);
     padding: calc(var(--gap) / 6);
 }
-
+.quick-bar .content form .tags ul {
+    display: flex;
+    flex-flow: row;
+}
+.quick-bar .content form .tags ul li {
+    background: var(--primary-color);
+    border-radius: 5px;
+    color: var(--font-color);
+    padding: calc(var(--gap) / 4) calc(var(--gap) / 2);
+}
+.quick-bar .content form .tags ul li:not(:first-child) {
+    margin-left: calc(var(--gap) / 5);
+}
 .quick-bar .footer {
     background: transparent;
 }
@@ -957,7 +969,8 @@ input[type="text"]::placeholder{
         transition: all .3s ease;
     }
     
-    .quick-reply .footer .buttons .send:hover::after {
+    .quick-reply .footer .buttons .send:hover::after, 
+    .quick-reply .footer .buttons .send.active::after {
         font-family: "Material Icons";
         content: "send";
         font-size: calc(var(--gap) / 1.2);
@@ -973,10 +986,12 @@ input[type="text"]::placeholder{
         border: calc(var(--gap) * .5) solid var(--primary-color);
         transition: all .3s ease;
     }
-    .quick-reply .footer .buttons .send.answered:hover {
+    .quick-reply .footer .buttons .send.answered:hover,
+    .quick-reply .footer .buttons .send.answered.active  {
         border: calc(var(--gap) * .5) solid var(--answered-color);
     }
-    .quick-reply .footer .buttons .send.answered:hover::before {
+    .quick-reply .footer .buttons .send.answered:hover::before,
+    .quick-reply .footer .buttons .send.answered.active::before {
         content: 'Answered';
         font-family: 'Roboto';
         position: absolute;
@@ -991,10 +1006,12 @@ input[type="text"]::placeholder{
         border: calc(var(--gap) * .5) solid var(--primary-color);
         transition: all .3s ease;
     }
-    .quick-reply .footer .buttons .send.open:hover {
+    .quick-reply .footer .buttons .send.open:hover, 
+    .quick-reply .footer .buttons .send.open.active {
         border: calc(var(--gap) * .5) solid var(--open-color);
     }
-    .quick-reply .footer .buttons .send.open:hover::before {
+    .quick-reply .footer .buttons .send.open:hover::before, 
+    .quick-reply .footer .buttons .send.open.active::before {
         content: 'Open';
         font-family: 'Roboto';
         position: absolute;
@@ -1009,10 +1026,12 @@ input[type="text"]::placeholder{
         border: calc(var(--gap) * .5) solid var(--primary-color);
         transition: all .3s ease;
     }
-    .quick-reply .footer .buttons .send.done:hover {
+    .quick-reply .footer .buttons .send.done:hover,
+    .quick-reply .footer .buttons .send.done.active {
         border: calc(var(--gap) * .5) solid var(--dark-grey);
     }
-    .quick-reply .footer .buttons .send.done:hover::before {
+    .quick-reply .footer .buttons .send.done:hover::before,
+    .quick-reply .footer .buttons .send.done.active::before {
         content: 'Done';
         font-family: 'Roboto';
         position: absolute;
@@ -1031,7 +1050,8 @@ input[type="text"]::placeholder{
     */
     .quick-note {
         background-color: var(--secondary-color);
-        height: calc(var(--main-height) * 2);
+        display: grid;
+        height: calc(var(--main-height) * 3);
         position: absolute;
         left: var(--width-aside);
         width: calc(100% - var(--width-aside));
@@ -1043,27 +1063,13 @@ input[type="text"]::placeholder{
     .quick-note.active {
         transform: translateY(0);
     }
-    .quick-note .header {
-        align-items: center;
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
-        height: var(--main-height);
-    }
-    .quick-note .header > div {
-        padding: 0 var(--gap);
-    }
-    .quick-note .header .close {
-        cursor: pointer;
-    }
     .quick-note .content {
         padding: calc(var(--gap) / 2);
-        padding-right: 0;
         display: grid;
     }
     .quick-note .content form {
         display: grid;
-        grid-template-columns: 1fr var(--main-height);
+        grid-template-columns: 1fr calc(var(--main-height) * 2);
     }
     
     .quick-note .content form .fields {
@@ -1101,12 +1107,12 @@ input[type="text"]::placeholder{
         padding: calc(var(--gap) / 6);
         height: 100%;
     }
-    
+
     .quick-note .content form .buttons {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
-        justify-items: center;
+        justify-items: end;
         align-content: end;
     }
     
@@ -1114,9 +1120,17 @@ input[type="text"]::placeholder{
         cursor: pointer;
     }
     
+    .quick-note .content form .buttons:hover .send-2 {
+        transform: translateY(calc(var(--gap) * -2));
+    }
+    
+    .quick-note .content form .buttons:hover .send-3 {
+        transform: translateY(calc(var(--gap) * -4));
+    }
+
     .quick-note .content form .buttons .send {
         align-items: center;
-        background-color: var(--primary-color);
+        background-color: var(--darker-grey);
         border-radius: 50%;
         display: grid;
         justify-content: center;
@@ -1125,4 +1139,77 @@ input[type="text"]::placeholder{
         height: calc(var(--gap) * 2);
         width: calc(var(--gap) * 2);
         transition: all .3s ease;
+    }
+    
+    .quick-note .content form .buttons .send:hover::after, 
+    .quick-note .content form .buttons .send.active::after {
+        font-family: "Material Icons";
+        content: "send";
+        font-size: calc(var(--gap) / 1.2);
+        color: var(--white);
+    }
+
+
+    .quick-note .content form .buttons .send.send-main {
+        z-index: 3;
+    } 
+    .quick-note .content form .buttons .send.answered {
+        background-color: var(--answered-color);
+        border: calc(var(--gap) * .5) solid var(--primary-color);
+        transition: all .3s ease;
+    }
+    .quick-note .content form .buttons .send.answered:hover,
+    .quick-note .content form .buttons .send.answered.active  {
+        border: calc(var(--gap) * .5) solid var(--answered-color);
+    }
+    .quick-note .content form .buttons .send.answered:hover::before,
+    .quick-note .content form .buttons .send.answered.active::before {
+        content: 'Answered';
+        font-family: 'Roboto';
+        position: absolute;
+        font-size: 14px;
+        font-weight: 900;
+        width: 150px;
+        text-align: right;
+        margin-left: -180px;
+    }
+    .quick-note .content form .buttons .send.open {
+        background-color: var(--open-color);  
+        border: calc(var(--gap) * .5) solid var(--primary-color);
+        transition: all .3s ease;
+    }
+    .quick-note .content form .buttons .send.open:hover, 
+    .quick-note .content form .buttons .send.open.active {
+        border: calc(var(--gap) * .5) solid var(--open-color);
+    }
+    .quick-note .content form .buttons .send.open:hover::before, 
+    .quick-note .content form .buttons .send.open.active::before {
+        content: 'Open';
+        font-family: 'Roboto';
+        position: absolute;
+        font-size: 14px;
+        font-weight: 900;
+        width: 150px;
+        text-align: right;
+        margin-left: -180px;
+    }
+    .quick-note .content form .buttons .send.done {
+        background-color: var(--dark-grey);      
+        border: calc(var(--gap) * .5) solid var(--primary-color);
+        transition: all .3s ease;
+    }
+    .quick-note .content form .buttons .send.done:hover,
+    .quick-note .content form .buttons .send.done.active {
+        border: calc(var(--gap) * .5) solid var(--dark-grey);
+    }
+    .quick-note .content form .buttons .send.done:hover::before,
+    .quick-note .content form .buttons .send.done.active::before {
+        content: 'Done';
+        font-family: 'Roboto';
+        position: absolute;
+        font-size: 14px;
+        font-weight: 900;
+        width: 150px;
+        text-align: right;
+        margin-left: -180px;
     }
