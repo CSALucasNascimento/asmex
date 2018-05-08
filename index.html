@@ -211,22 +211,34 @@
         <header class="header">
 
             <!-- Subject Title -->
-            <div class="subject">#3826 - New Contract Agreeme...</div>
+            <div class="subject"><p class="bigger">#3826 - New Contract Agreeme...</p></div>
             <span></span>
 
             <!-- Action Menu -->
             <nav class="action-nav">
                 <ul>
-                    <li><a href="javascript: void(0);">Sales Team</a></li>
+                    <li class="has-child">
+                        <a href="javascript: void(0);">Sales Team</a>
+                        <ul class="action-nav-content">
+                            <li><a href="#">Tech Team</a></li>
+                            <li><a href="#">Design Team</a></li>
+                            <li><a href="#">BLABLABLA Team</a></li>
+                        </ul>
+                    </li>
                     <li class="has-child">
                         <a href="javascript: void(0);">Christophe Adolphe</a>
                         <ul class="action-nav-content">
+                            <li>
+                                <div class="input-group">
+                                    <input type="search" name="" id="" placeholder="Search...">
+                                    <i class="material-icons">search</i>
+                                </div>
+                            </li>
                             <li><a href="#">Christophe Adolphe</a></li>
                             <li><a href="#">Christophe Adolphe</a></li>
                             <li><a href="#">Christophe Adolphe</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript: void(0);">MED</a></li>
                     <li onclick="toggle('quick-bar')"><a href="javascript: void(0);"><i class="material-icons">mode_edit</i></a></li>
                 </ul>
             </nav>
