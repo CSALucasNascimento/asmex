@@ -243,9 +243,6 @@ input[type="text"]::placeholder{
 .aside .actions .all-inboxes .inboxes ul li ul.action-nav-content li:hover {
     background-color: var(--secondary-color);
 }
-.aside .actions .all-inboxes .inboxes ul li ul.action-nav-content li:not(:last-child) {
-    box-shadow: 0 1px 0 0 var(--border-grey);
-}
 
 
 
@@ -296,7 +293,6 @@ input[type="text"]::placeholder{
     color: var(--open-color);
 }
 .aside .search {
-    box-shadow: inset 0 -1px 0 0 var(--border-grey);
     grid-area: search;
     display: grid;
     align-content: center;
@@ -652,9 +648,6 @@ input[type="text"]::placeholder{
 .header nav ul li ul.action-nav-content li:hover {
     background-color: var(--secondary-color);
 }
-.header nav ul li ul.action-nav-content li:not(:last-child) {
-    box-shadow: 0 1px 0 0 var(--border-grey);
-}
 
 
 /****
@@ -929,11 +922,9 @@ input[type="text"]::placeholder{
     }
     .quick-reply.active {
         transform: translateY(0);
-        /* filter: drop-shadow(0 -20px 20px rgba(0, 0, 0, .12)); */
-        box-shadow: 0 20px 60px 0 #000;
     }
     .quick-reply .content {
-        padding: var(--gap) 0 0 var(--gap);
+        padding: calc(var(--gap) /2) 0 0 calc(var(--gap) /2);
         display: grid;
     }
     .quick-reply .content form {
@@ -974,7 +965,7 @@ input[type="text"]::placeholder{
     .quick-reply .footer {
         background: inherit;
         box-shadow: none;
-        padding:  calc(var(--gap) / 2) var(--gap);
+        padding:  calc(var(--gap) / 2);
         display: grid;
         grid-template-columns: 1fr max-content;
         align-items: center;
