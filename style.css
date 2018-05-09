@@ -485,6 +485,9 @@ input[type="text"]::placeholder{
     justify-content: space-between;
     height: var(--main-height);
 }
+.quick-bar .header .title {
+    font-weight: 700;
+}
 .quick-bar .header > div, .quick-bar .footer > div {
     padding: 0 var(--gap);
 }
@@ -519,15 +522,55 @@ input[type="text"]::placeholder{
 }
 .quick-bar .content form .tags ul li {
     background: var(--primary-color);
-    border-radius: 5px;
     color: var(--font-color);
     padding: calc(var(--gap) / 4) calc(var(--gap) / 2);
 }
+.quick-bar .content form .tags ul li::after {
+    font-family: "Material Icons";
+    font-size: 10px;
+    font-weight: 700;
+    content: "close";
+    background-color: var(--font-color);
+    color: var(--dark-grey);
+    border-radius: 50%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: calc(var(--gap) * .4);
+    width: calc(var(--gap) * .4);
+    position: absolute;
+    transition: all .3s ease;
+    margin-left: calc(var(--gap) * 1.3);
+    margin-top: calc(var(--gap) * -1);
+}
+
 .quick-bar .content form .tags ul li:not(:first-child) {
-    margin-left: calc(var(--gap) / 5);
+    margin-left: calc(var(--gap) / 2);
 }
 .quick-bar .footer {
     background: transparent;
+    box-shadow: none;
+}
+.quick-bar .footer .buttons {
+    cursor: pointer;
+}
+.quick-bar .footer .buttons .done {
+    align-items: center;
+    background-color: var(--font-color);
+    color: var(--dark-grey);
+    border-radius: 50%;
+    display: grid;
+    justify-content: center;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    height: calc(var(--gap) * 1.5);
+    width: calc(var(--gap) * 1.5);
+    transition: all .3s ease;
+}
+.quick-bar .footer .buttons:hover .done {
+    background-color: var(--dark-grey);
+    color: var(--font-color);
+    box-shadow: inset 0 0 0 1px var(--font-color);
 }
 
 /****
@@ -874,7 +917,7 @@ input[type="text"]::placeholder{
     *
     */
     .quick-reply {
-        background-color: var(--primary-color);
+        background-color: var(--secondary-color);
         height: calc(var(--main-height) * 3);
         position: absolute;
         left: var(--width-aside);
@@ -983,7 +1026,7 @@ input[type="text"]::placeholder{
     } 
     .quick-reply .footer .buttons .send.answered {
         background-color: var(--answered-color);
-        border: calc(var(--gap) * .5) solid var(--primary-color);
+        border: calc(var(--gap) * .5) solid var(--secondary-color);
         transition: all .3s ease;
     }
     .quick-reply .footer .buttons .send.answered:hover,
@@ -1003,7 +1046,7 @@ input[type="text"]::placeholder{
     }
     .quick-reply .footer .buttons .send.open {
         background-color: var(--open-color);  
-        border: calc(var(--gap) * .5) solid var(--primary-color);
+        border: calc(var(--gap) * .5) solid var(--secondary-color);
         transition: all .3s ease;
     }
     .quick-reply .footer .buttons .send.open:hover, 
@@ -1023,7 +1066,7 @@ input[type="text"]::placeholder{
     }
     .quick-reply .footer .buttons .send.done {
         background-color: var(--dark-grey);      
-        border: calc(var(--gap) * .5) solid var(--primary-color);
+        border: calc(var(--gap) * .5) solid var(--secondary-color);
         transition: all .3s ease;
     }
     .quick-reply .footer .buttons .send.done:hover,
@@ -1130,7 +1173,7 @@ input[type="text"]::placeholder{
 
     .quick-note .content form .buttons .send {
         align-items: center;
-        background-color: var(--darker-grey);
+        background-color: var(--primary-color);
         border-radius: 50%;
         display: grid;
         justify-content: center;
@@ -1155,7 +1198,7 @@ input[type="text"]::placeholder{
     } 
     .quick-note .content form .buttons .send.answered {
         background-color: var(--answered-color);
-        border: calc(var(--gap) * .5) solid var(--primary-color);
+        border: calc(var(--gap) * .5) solid var(--secondary-color);
         transition: all .3s ease;
     }
     .quick-note .content form .buttons .send.answered:hover,
@@ -1175,7 +1218,7 @@ input[type="text"]::placeholder{
     }
     .quick-note .content form .buttons .send.open {
         background-color: var(--open-color);  
-        border: calc(var(--gap) * .5) solid var(--primary-color);
+        border: calc(var(--gap) * .5) solid var(--secondary-color);
         transition: all .3s ease;
     }
     .quick-note .content form .buttons .send.open:hover, 
@@ -1195,7 +1238,7 @@ input[type="text"]::placeholder{
     }
     .quick-note .content form .buttons .send.done {
         background-color: var(--dark-grey);      
-        border: calc(var(--gap) * .5) solid var(--primary-color);
+        border: calc(var(--gap) * .5) solid var(--secondary-color);
         transition: all .3s ease;
     }
     .quick-note .content form .buttons .send.done:hover,
